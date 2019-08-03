@@ -57,11 +57,10 @@ namespace SignalRChat
             app.UseCookiePolicy();
 
 
-
+            //SignalRÂ·ÓÉ
             app.UseSignalR(r =>
             {
-
-                r.MapHub<ChatHub>("/chathub");
+                r.MapHub<ChatHub>("/chatHub");
             });
 
             app.UseMvc();
