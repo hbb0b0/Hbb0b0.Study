@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{949416EC-9B28-489B-AEEE-01E1CAD06B64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp1", "SampleApp1\SampleApp1.csproj", "{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AsyncStudy", "AsyncStudy", "{267DB059-BEF1-4A96-9DA8-D05302B2E3E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp2", "SampleApp2\SampleApp2.csproj", "{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp1", "AsyncStudy\SampleApp1\SampleApp1.csproj", "{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp2", "AsyncStudy\SampleApp2\SampleApp2.csproj", "{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSACertApp", "RSACertApp\RSACertApp.csproj", "{0E32F58D-0E7C-4A32-9E2C-01E4BF3B6AA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{949416EC-9B28-489B-AEEE-01E1CAD06B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{949416EC-9B28-489B-AEEE-01E1CAD06B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{949416EC-9B28-489B-AEEE-01E1CAD06B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{949416EC-9B28-489B-AEEE-01E1CAD06B64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,15 +23,15 @@ Global
 		{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E32F58D-0E7C-4A32-9E2C-01E4BF3B6AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E32F58D-0E7C-4A32-9E2C-01E4BF3B6AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E32F58D-0E7C-4A32-9E2C-01E4BF3B6AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E32F58D-0E7C-4A32-9E2C-01E4BF3B6AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
-		{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D8110C10-D9D6-46DD-AE31-52D8D17EB17A}
+		SolutionGuid = {79BE2451-DE37-4556-BDA8-C5F7DD0E02E7}
 	EndGlobalSection
 EndGlobal
