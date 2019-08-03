@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp1", "AsyncStudy\Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp2", "AsyncStudy\SampleApp2\SampleApp2.csproj", "{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalStudy", "SignalStudy", "{94CC8BF7-6276-4F45-9D4B-9257C61D7D69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{949416EC-9B28-489B-AEEE-01E1CAD06B64} = {94CC8BF7-6276-4F45-9D4B-9257C61D7D69}
 		{7E0CAECA-7A9B-4418-BE8D-07FF1A0C99E3} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
 		{0FD202D4-1E2A-4FEC-B768-2E3A4228FED9} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
 	EndGlobalSection
