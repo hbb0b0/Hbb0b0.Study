@@ -13,6 +13,7 @@ namespace SampleApp1
         {
             Console.WriteLine("Main Start....");
             AsyncCall();
+            SyncCall();
 
             Console.WriteLine("Main end....");
             Console.ReadLine();
@@ -22,8 +23,17 @@ namespace SampleApp1
         {
             Console.WriteLine("AsyncCall start");
             int result = await GetNumber1();
-            Console.WriteLine("AsyncCall end");
+            Console.WriteLine($"AsyncCall GetNumber1 return:{result} end");
         }
+
+       
+        static  void SyncCall()
+        {
+            Console.WriteLine("SyncCall start ");
+          
+            Console.WriteLine($"SyncCall end");
+        }
+
 
         static async Task<int> GetNumber1()
         {
