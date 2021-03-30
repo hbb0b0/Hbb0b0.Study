@@ -15,3 +15,9 @@ Get-Help -Name Get-Help -Full
 get-help *process
 #获取 Get-Process 的帮助
 Get-help -name get-process
+
+#查看进程的信息
+Get-Process OpenConsole
+
+#查看进程的文件信息
+Get-Process OpenConsole -FileVersionInfo
