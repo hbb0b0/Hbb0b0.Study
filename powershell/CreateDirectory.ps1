@@ -29,10 +29,14 @@ function Start-Build()
     )
 
     $MsBuild = $env:systemroot + "\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
+  
+    #$MsBuild =   "D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild.exe";
     Write-Host  "msbuild所在目录：" $MsBuild
-
+    #设置目录
+    #Set-Location -Path "D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools" -PassThru
+   
     #&$MsBuild $SolutionPath /m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
-    &$MsBuild $SolutionPath /m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform="Any CPU" /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
+    &$MsBuild $SolutionPath /m  /t:rebuild /p:DeployOnBuild=false /p:Configuration=Debug /p:OutputPath=H:\xiaomayi\publish /p:platform="Any CPU" /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
     $ret=$?;
     echo "MsBuild 编译=$ret";
 
@@ -41,4 +45,5 @@ function Start-Build()
 #Add-Directory -RootDirName H:\xiaomayi
 #Start-Build E:\work\sup2\master2\sup-heart\SUP_heart\Build\SUP_heart.sln
 #Start-Build E:\work\sup2\sup-hook\master\C#挂机\拼多多挂机\PingddPay\PingddPay.sln 
-Start-Build E:\dev\Hbb0b0.Study\Hbb0b0.Study.sln 
+
+Start-Build E:\study\csharp\ADO.Solution\ADOConnectionPool\ADOConnectionPoolTestApp\ADOConnectionPoolTestApp.sln
