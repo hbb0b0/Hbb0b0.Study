@@ -25,9 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpTestApp", "HttpsApp\Htt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "powershell", "powershell", "{18BCCF60-2593-4252-8D4F-F0F89C7DB4BA}"
 	ProjectSection(SolutionItems) = preProject
+		powershell\CreateDirectory.ps1 = powershell\CreateDirectory.ps1
 		powershell\Study01.ps1 = powershell\Study01.ps1
 		powershell\xiaomayiPCPublish.ps1 = powershell\xiaomayiPCPublish.ps1
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mindmaster", "mindmaster", "{E5580B9C-978A-45B2-985D-118A4F659AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

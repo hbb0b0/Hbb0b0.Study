@@ -24,3 +24,6 @@ Get-Process OpenConsole
 Get-Process OpenConsole -FileVersionInfo
 
 #Get-Command 的作用是帮助查找命令。 运行不带任何参数的 Get-Command 会返回系统上所有命令的列表。 以下示例演示使用 Get-Command cmdlet 确定存在的用于处理进程的命令：
+
+# 查看进程信息，并且以winform表格展示
+get-process | Out-GridView
