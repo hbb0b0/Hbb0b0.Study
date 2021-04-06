@@ -22,6 +22,7 @@ namespace SampleApp1
         {
             Console.WriteLine("AsyncCall start");
             int result = await GetNumber1();
+            Console.WriteLine($"AsyncCall:result:{result}");
             Console.WriteLine("AsyncCall end");
         }
 
