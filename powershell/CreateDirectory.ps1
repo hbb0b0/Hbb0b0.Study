@@ -28,17 +28,26 @@ function Start-Build()
         [string] $SolutionPath
     )
 
-    $MsBuild = $env:systemroot + "\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
+    
+    #$MsBuild = $env:systemroot + "\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe";
   
     #$MsBuild =   "D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild.exe";
-    Write-Host  "msbuild所在目录：" $MsBuild
+    #Write-Host  "msbuild所在目录：" $MsBuild
     #设置目录
-    #Set-Location -Path "D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools" -PassThru
-   
+    #$ScriptPath=Get-Location
+    Push-Location 'E:\dev\Hbb0b0.Study\powershell'
+    Set-Location -Path "D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\" -PassThru
+    #Get-Location 
+    &"D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\Tools\VsDevCmd"
     #&$MsBuild $SolutionPath /m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
-    &$MsBuild $SolutionPath /m  /t:rebuild /p:DeployOnBuild=false /p:Configuration=Debug /p:OutputPath=H:\xiaomayi\publish /p:platform="Any CPU" /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
+    #&$MsBuild $SolutionPath /m  /t:rebuild /p:DeployOnBuild=false /p:Configuration=Debug /p:OutputPath=H:\xiaomayi\publish /p:platform="Any CPU" /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
+    $buildCMD="'D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MsBuild.exe'" +$SolutionPath +"/m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5"
+    Write-Host $buildCMD
+    &'D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MsBuild.exe'++$SolutionPath +"/m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5"
     $ret=$?;
-    echo "MsBuild 编译=$ret";
+    Write-Host "MsBuild 编译=$ret";
+    Pop-Location 
+    Get-Location
 
 }
 
