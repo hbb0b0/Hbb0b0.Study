@@ -43,7 +43,7 @@ function Start-Build()
     #&$MsBuild $SolutionPath /m  /t:rebuild /p:DeployOnBuild=false /p:Configuration=Debug /p:OutputPath=H:\xiaomayi\publish /p:platform="Any CPU" /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5
     $buildCMD="'D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MsBuild.exe'" +$SolutionPath +"/m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5"
     Write-Host $buildCMD
-    &'D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MsBuild.exe'++$SolutionPath +"/m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5"
+    &'D:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MsBuild.exe'+$SolutionPath +"/m  /t:publish /p:DeployOnBuild=true /p:Configuration=Debug /p:PublishDir=H:\xiaomayi\publish /p:platform=x86 /p:OutputPath=bin\Debug /p:TargetFrameworkVersion=v4.5"
     $ret=$?;
     Write-Host "MsBuild 编译=$ret";
     Pop-Location 
