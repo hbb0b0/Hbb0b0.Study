@@ -26,6 +26,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "powershell", "powershell", "{18BCCF60-2593-4252-8D4F-F0F89C7DB4BA}"
 	ProjectSection(SolutionItems) = preProject
 		powershell\CreateDirectory.ps1 = powershell\CreateDirectory.ps1
+		powershell\downloadWallpaper.ps1 = powershell\downloadWallpaper.ps1
+		powershell\functionUse.ps1 = powershell\functionUse.ps1
 		powershell\Study01.ps1 = powershell\Study01.ps1
 		powershell\xiaomayiPCPublish.ps1 = powershell\xiaomayiPCPublish.ps1
 	EndProjectSection
