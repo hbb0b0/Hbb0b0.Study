@@ -40,6 +40,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm", "algorithm\algo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithmTests", "algorithm\algorithmTests\algorithmTests.csproj", "{40DB1386-BE27-4B41-AC65-6A397FCAA6F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalConcurrencyNET.Study", "FunctionalConcurrencyNET.Study\FunctionalConcurrencyNET.Study\FunctionalConcurrencyNET.Study.csproj", "{55013802-923C-4ADE-A407-8247BBBC9FD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalConcurrencyNET.Study.UnitTest", "FunctionalConcurrencyNET.Study\FunctionalConcurrencyNET.Study.UnitTest\FunctionalConcurrencyNET.Study.UnitTest.csproj", "{7519EAE3-9376-48FD-88C3-1A6BAAC36F16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,14 @@ Global
 		{40DB1386-BE27-4B41-AC65-6A397FCAA6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40DB1386-BE27-4B41-AC65-6A397FCAA6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40DB1386-BE27-4B41-AC65-6A397FCAA6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55013802-923C-4ADE-A407-8247BBBC9FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55013802-923C-4ADE-A407-8247BBBC9FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55013802-923C-4ADE-A407-8247BBBC9FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55013802-923C-4ADE-A407-8247BBBC9FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7519EAE3-9376-48FD-88C3-1A6BAAC36F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7519EAE3-9376-48FD-88C3-1A6BAAC36F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7519EAE3-9376-48FD-88C3-1A6BAAC36F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7519EAE3-9376-48FD-88C3-1A6BAAC36F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
