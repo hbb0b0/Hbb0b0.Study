@@ -6,15 +6,17 @@ using StackExchange.Redis;
 using Newtonsoft.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
+
 namespace RedisBasicApp
 {
     public class BasicSample
     {
         private ConnectionMultiplexer m_Connect = null;
-        private string Hash_UserScore_Key = "UserScore";
+        private string Hash_UserScore_Key = "{UserScore}";
         public BasicSample()
         {
-            string redisConnection = "192.168.8.26,password = 123456,connectTimeout = 60000,syncTimeout = 60000,abortConnect = false";
+            string redisConnection = "192.168.8.189,password = 123456,connectTimeout = 60000,syncTimeout = 60000,abortConnect = false";
 
             m_Connect = ConnectionMultiplexer.Connect(redisConnection);
 
@@ -103,7 +105,140 @@ namespace RedisBasicApp
         }
 
 
+        public Tuple<int,long> HashIncrementScript(string hash_key,string hask_key_key,int maxCounter)
+        {
+            Tuple<int, long> result = new Tuple<int, long>(0,0);
+
+            IDatabase database = m_Connect.GetDatabase(0);
+            const string SCRIPT_INCREMENT = @"
+        local result={};
+        local balance = 0;
+        local operate = 0;
+        if (redis.call('hexists', KEYS[1],KEYS[2]) == 1) then
+          balance = tonumber(redis.call('hget', KEYS[1],KEYS[2]));
+          if ((balance + 1) <= tonumber(ARGV[1])) then
+              balance= tonumber(redis.call('hincrby', KEYS[1],KEYS[2], 1));
+              operate =1 ;
+          end;
+        else
+          balance= tonumber(redis.call('hincrby', KEYS[1],KEYS[2], 1));
+          operate =1 ;
+        end;
+        result[1] = operate;
+        result[2] = balance;
+        return result ;
+        --return balance;
+       
+        ";
+
+            //Key列表
+            List<RedisKey> keyList = new List<RedisKey>();
+            keyList.Add(hash_key);
+            keyList.Add(hask_key_key);
+           
+            //Value 列表
+            List<RedisValue> valueList = new List<RedisValue>();
+            valueList.Add(maxCounter.ToString());
+            //lua脚本中返回不了 return a,b 多值,但是可以返回数组，
+     
+            //ScriptEvaluate 可以返回单值与多值
+            //单值 SingleRedisResult
+            //多值 ArrayRedisResult
+            //SingleRedisResult,ArrayRedisResult,这两种返回值都是
+            //继承RedisResult
+            RedisResult redisResult = database.ScriptEvaluate(
+                SCRIPT_INCREMENT,
+               keyList.ToArray(),
+               valueList.ToArray()
+
+               );
+
+            //return long.Parse( redisResult.ToString());
+            if(!redisResult.IsNull)
+            {
+                RedisResult[] redisArray = (RedisResult[])redisResult;
+                result = new Tuple<int, long>(int.Parse(redisArray[0].ToString()), long.Parse(redisArray[1].ToString()));
+            }
+
+
+            return result;
+            
+
+        }
+
+        /// <summary>
+        /// 单个实例在跑，没有出现Score超过1000；
+        /// 多个实例跑，很容易出现score超过1000，经常会到 1022;
+        /// </summary>
+        public void Wath()
+        {
+            IDatabase database = m_Connect.GetDatabase(11);
+
+            //Wath_Init(database);
+
+            List<Task> taskList = new List<Task>();
+            
+            for (int j = 0; j < 1000; j++)
+            {
+                Task t = Task.Factory.StartNew(() =>
+                {
+                    //IDatabase database1 = m_Connect.GetDatabase(11);
+                    Wath_HashIncrement(database);
+                });
+
+                taskList.Add(t);
+
+            }
+
+            Task.WaitAll(taskList.ToArray());
+            
+
+            //Parallel.For(0, 100, i => {
+            //    //Task t = Task.Factory.StartNew(() =>
+            //    //{
+            //        //IDatabase database1 = m_Connect.GetDatabase(11);
+            //        Wath_HashIncrement(database);
+            //    //});
+
+            //    //taskList.Add(t);
+            //});
+            ////Task.WaitAll(taskList.ToArray());
+            Console.WriteLine("All task finished");
+        }
+
+        private void Wath_Init(IDatabase database)
+        {
+            //初始化
+            string hashKey1 = $"user:{1000}";
+            database.HashSet(hashKey1, "score", 0);
+
+            //初始化
+            //hashKey1 = $"user:{2000}";
+            //database.HashSet(hashKey1, "score", 0);
+
+
+            
+        }
+
+        private void Wath_HashIncrement(IDatabase database)
+        {
+            int maxValue = 1000;
+            string hashKey1 = $"user:{1000}";
+            RedisValue redisValue= database.HashGet($"user:{1000}", "score");
+            int sleepTime = 100;
+            sleepTime = new Random((int)DateTime.Now.Ticks).Next(1000);
+            Thread.Sleep(sleepTime);
+            if (int.Parse(redisValue.ToString())<maxValue)
+            {
+                
+                //Debug.WriteLine(  database.HashIncrement(hashKey1, "score"));
+                Console.WriteLine($"sleepTime:{sleepTime} score:{database.HashIncrement(hashKey1, "score")} running:");
+            }
+
+        }
 
 
     }
+
+
 }
