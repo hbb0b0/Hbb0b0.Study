@@ -11,13 +11,26 @@ namespace CoffeExampleWithTAP
             Console.ReadLine();
         }
 
-        public static async void DoBreakfast()
+        public static  void DoBreakfast()
         {
+            /*
             Coffee cup = await PourCoffee();
             Console.WriteLine("coffee is ready");
 
             Egg eggs = await FryEggs(2);
             Console.WriteLine("eggs are ready");
+            */
+            /*
+            var coffeeTask = PourCoffee();
+            var eggTask = FryEggs(2);
+
+            var cup = await coffeeTask;
+
+            var egg = await eggTask;
+            */
+
+            AsyncPourCoffee();
+            AsyncFryEggs();
 
             Bacon bacon = FryBacon(3);
             Console.WriteLine("bacon is ready");
@@ -77,8 +90,25 @@ namespace CoffeExampleWithTAP
             return new Bacon();
         }
 
+        private static async void AsyncFryEggs()
+        {
+            Console.WriteLine("AsyncFryEggs End");
+            Egg egg =    await FryEggs(2);
+            Console.WriteLine("AsyncFryEggs End");
+        }
+
+        private static async void AsyncPourCoffee()
+        {
+            Console.WriteLine("AsyncPourCoffee End");
+            Coffee bacon = await PourCoffee();
+            Console.WriteLine("AsyncPourCoffee End");
+        }
+
+
+
         private static async Task<Egg> FryEggs(int howMany)
         {
+            Console.WriteLine("FryEggs reading...");
             return await Task.Run(() =>
             {
                 Console.WriteLine("Warming the egg pan...");
@@ -95,9 +125,14 @@ namespace CoffeExampleWithTAP
 
         private static async Task<Coffee> PourCoffee()
         {
-            return  await  Task.Run(() =>
+            Console.WriteLine("Pouring coffee reading...");
+            return    await Task.Run(() =>
             {
-                Console.WriteLine("Pouring coffee");
+                Console.WriteLine("Pouring coffee start");
+                Task.Delay(3000).Wait();
+                Console.WriteLine("Pouring coffee running");
+                Task.Delay(3000).Wait();
+                Console.WriteLine("Pouring coffee end");
                 return new Coffee();
             });
 

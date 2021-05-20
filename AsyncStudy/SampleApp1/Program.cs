@@ -11,7 +11,7 @@ namespace SampleApp1
     {
         static  void Main(string[] args)
         {
-            Console.WriteLine("Main Start....");
+            Console.WriteLine($"Main Start....ThreadId:{GetThreadId()}");
             AsyncCall();
             SyncCall();
 
@@ -21,8 +21,9 @@ namespace SampleApp1
 
         static async void AsyncCall()
         {
-            Console.WriteLine("AsyncCall start");
+            Console.WriteLine($"AsyncCall start  ThreadId:{GetThreadId()}");
             int result = await GetNumber1();
+            //wait 之后返回主线程
             Console.WriteLine($"AsyncCall GetNumber1 return:{result} end");
         }
 
@@ -41,19 +42,18 @@ namespace SampleApp1
         /// <returns></returns>
         static async Task<int> GetNumber1()
         {
-        
-                Console.WriteLine($"GetNumber1 start at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-                //Task.Delay(5000).Wait();
-                Console.WriteLine($"GetNumber1 end at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-               // return 100;
-
               return   await Task.Run(()=> {
-                Console.WriteLine($"GetNumber1 start at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-                //Task.Delay(5000).Wait();
+                Console.WriteLine($"GetNumber1 start at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}  ThreadId:{GetThreadId()}");
+                Task.Delay(5000).Wait();
                 Console.WriteLine($"GetNumber1 end at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
                 return 100;
             });
 
+        }
+
+        static int GetThreadId()
+        {
+            return Thread.CurrentThread.ManagedThreadId;
         }
     }
 }
