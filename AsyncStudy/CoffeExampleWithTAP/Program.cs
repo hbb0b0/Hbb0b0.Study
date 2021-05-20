@@ -11,26 +11,13 @@ namespace CoffeExampleWithTAP
             Console.ReadLine();
         }
 
+        //1 调用者
         public static  void DoBreakfast()
         {
-            /*
-            Coffee cup = await PourCoffee();
-            Console.WriteLine("coffee is ready");
+            
+            PourCoffeeAsync();
 
-            Egg eggs = await FryEggs(2);
-            Console.WriteLine("eggs are ready");
-            */
-            /*
-            var coffeeTask = PourCoffee();
-            var eggTask = FryEggs(2);
-
-            var cup = await coffeeTask;
-
-            var egg = await eggTask;
-            */
-
-            AsyncPourCoffee();
-            AsyncFryEggs();
+            FryEggsAsync();
 
             Bacon bacon = FryBacon(3);
             Console.WriteLine("bacon is ready");
@@ -43,6 +30,7 @@ namespace CoffeExampleWithTAP
             Juice oj = PourOJ();
             Console.WriteLine("oj is ready");
             Console.WriteLine("Breakfast is ready!");
+            Console.ReadLine();
 
           
         }
@@ -90,16 +78,17 @@ namespace CoffeExampleWithTAP
             return new Bacon();
         }
 
-        private static async void AsyncFryEggs()
+        private static async void FryEggsAsync()
         {
-            Console.WriteLine("AsyncFryEggs End");
+            Console.WriteLine("AsyncFryEggs start");
             Egg egg =    await FryEggs(2);
             Console.WriteLine("AsyncFryEggs End");
         }
 
-        private static async void AsyncPourCoffee()
+        //2 异步方法
+        private static async void PourCoffeeAsync()
         {
-            Console.WriteLine("AsyncPourCoffee End");
+            Console.WriteLine("AsyncPourCoffee start");
             Coffee bacon = await PourCoffee();
             Console.WriteLine("AsyncPourCoffee End");
         }
@@ -123,6 +112,10 @@ namespace CoffeExampleWithTAP
             
         }
 
+        /// <summary>
+        /// 3 异步操作
+        /// </summary>
+        /// <returns></returns>
         private static async Task<Coffee> PourCoffee()
         {
             Console.WriteLine("Pouring coffee reading...");
