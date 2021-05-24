@@ -9,49 +9,42 @@ namespace SampleApp1
 {
     class Program
     {
+        /// <summary>
+        /// 调用方法
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("Main Start....");
-            AsyncCall();
-            SyncCall();
-
+            CallAsync(); 
             Console.WriteLine("Main end....");
             Console.ReadLine();
         }
 
-        static async void AsyncCall()
+        /// <summary>
+        /// 异步方法
+        /// </summary>
+        static async void CallAsync()
         {
             Console.WriteLine("AsyncCall start");
             int result = await GetNumber1();
-<<<<<<< HEAD
             Console.WriteLine($"AsyncCall:result:{result}");
             Console.WriteLine("AsyncCall end");
-=======
-            Console.WriteLine($"AsyncCall GetNumber1 return:{result} end");
->>>>>>> 8af9b1201c7160e3b2374fb3b7b67cc3c1d813dd
         }
 
-       
-        static  void SyncCall()
-        {
-            Console.WriteLine("SyncCall start ");
-          
-            Console.WriteLine($"SyncCall end");
-        }
-
-
+        /// <summary>
+        /// 异步操作
+        /// </summary>
+        /// <returns></returns>
         static async Task<int> GetNumber1()
         {
-            //var result = Task.Run<int>(() => {
+            Console.WriteLine("");
+            var t = Task.Run(() => {
+                Task.Delay(5000).Wait();
+                return 100;
+            });
 
-            //    Task.Delay(5000);
-            //     return 1;
-            // });
-            Console.WriteLine($"GetNumber1 start");
-            await Task.Delay(5000);
-            Console.WriteLine($"GetNumber1 end");
-
-            return 100;
+            return await t;
 
         }
     }
