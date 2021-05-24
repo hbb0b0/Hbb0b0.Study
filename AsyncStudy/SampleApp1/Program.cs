@@ -26,7 +26,7 @@ namespace SampleApp1
         /// </summary>
         static async void CallAsync()
         {
-            Console.WriteLine("AsyncCall start");
+            Console.WriteLine($"AsyncCall start  ThreadId:{GetThreadId()}");
             int result = await GetNumber1();
             Console.WriteLine($"AsyncCall:result:{result}");
             Console.WriteLine("AsyncCall end");
@@ -46,6 +46,9 @@ namespace SampleApp1
 
             return await t;
 
+        static int GetThreadId()
+        {
+            return Thread.CurrentThread.ManagedThreadId;
         }
     }
 }

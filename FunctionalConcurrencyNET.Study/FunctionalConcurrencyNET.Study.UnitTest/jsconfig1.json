@@ -1,0 +1,41 @@
+{
+  "chargeZone": [
+    {
+      "zoneCode": "kcoin",
+      "zoneName": "金山币"
+    }
+  ],
+  "chargeCardType": [
+    {
+      "cardType": "12",
+      "cardName": "15元一卡通(1500点)",
+      "basePoint": "1500",
+      "price": "15"
+    },
+    {
+      "cardType": "16",
+      "cardName": "50元一卡通(5000点)",
+      "basePoint": "5000",
+      "price": "50"
+    },
+    {
+      "cardType": "17",
+      "cardName": "100元一卡通(10000点)",
+      "basePoint": "10000",
+      "price": "100"
+    },
+    {
+      "cardType": "31",
+      "cardName": "5元一卡通(450点)",
+      "basePoint": "450",
+      "price": "5"
+    }
+  ],
+  "chargeMode": [
+    {
+      "modeCode": "0",
+      "modeName": "金山币"
+    }
+  ],
+  "isSuccess": true
+}
