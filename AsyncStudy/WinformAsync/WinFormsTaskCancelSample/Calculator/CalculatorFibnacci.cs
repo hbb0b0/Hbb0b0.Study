@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace WinFormsTaskCancelSample
 {
+    /// <summary>
+    /// 递归方式计算
+    /// </summary>
     public class CalculatorFibnacci
     {
         static int s_RecurseCounter = 0;
