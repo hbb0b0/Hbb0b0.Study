@@ -16,7 +16,7 @@ namespace WinFormsTaskCancelSample
          public static long Fib(int number)
         {
             
-            if(number>=1)
+            if(number>1)
             {
                 Debug.WriteLine($"s_RecurseCounter:{s_RecurseCounter++} Calc:Fib({number - 2})+Fib({number-1})");
                 return Fib(number - 2)+Fib(number-1);

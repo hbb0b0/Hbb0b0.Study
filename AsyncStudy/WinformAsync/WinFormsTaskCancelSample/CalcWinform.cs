@@ -21,11 +21,21 @@ namespace WinFormsTaskCancelSample
         {
             int number = 0;
              long result = 0;
+            /*
             if( int.TryParse( tbNumber.Text.Trim(),out number))
             {
                result =    await CalculatorFibnacci.FibAsync(number);
 
                 MessageBox.Show($"Number:{number} Result:{result}");
+            }
+            */
+            if (int.TryParse(tbNumber.Text.Trim(), out number))
+            {
+                result = await CalculatorFibnacciWithMem.FibAsync(number);
+
+                MessageBox.Show($"Number:{number} Result:{result}");
+
+                CalculatorFibnacciWithMem.Dump();
             }
         }
     }
