@@ -9,47 +9,42 @@ namespace SampleApp1
 {
     class Program
     {
-        static  void Main(string[] args)
+        /// <summary>
+        /// 调用方法
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
         {
-            Console.WriteLine($"Main Start....ThreadId:{GetThreadId()}");
-            AsyncCall();
-            SyncCall();
-
+            Console.WriteLine("Main Start....");
+            CallAsync(); 
             Console.WriteLine("Main end....");
             Console.ReadLine();
         }
 
-        static async void AsyncCall()
+        /// <summary>
+        /// 异步方法
+        /// </summary>
+        static async void CallAsync()
         {
             Console.WriteLine($"AsyncCall start  ThreadId:{GetThreadId()}");
             int result = await GetNumber1();
-            //wait 之后返回主线程
-            Console.WriteLine($"AsyncCall GetNumber1 return:{result} end");
-        }
-
-       
-        static  void SyncCall()
-        {
-            Console.WriteLine("SyncCall start ");
-          
-            Console.WriteLine($"SyncCall end");
+            Console.WriteLine($"AsyncCall:result:{result}");
+            Console.WriteLine("AsyncCall end");
         }
 
         /// <summary>
-        /// 如果一个async修饰的方法没有Task.run则会保下面警告
-        /// 警告CS1998  此异步方法缺少 "await" 运算符，将以同步方式运行。请考虑使用"await"运算符等待非阻止的API 调用，或者使用"await Task.Run(...)" 在后台线程上执行占用大量CPU 的工作
+        /// 异步操作
         /// </summary>
         /// <returns></returns>
         static async Task<int> GetNumber1()
         {
-              return   await Task.Run(()=> {
-                Console.WriteLine($"GetNumber1 start at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}  ThreadId:{GetThreadId()}");
+            Console.WriteLine("");
+            var t = Task.Run(() => {
                 Task.Delay(5000).Wait();
-                Console.WriteLine($"GetNumber1 end at:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
                 return 100;
             });
 
-        }
+            return await t;
 
         static int GetThreadId()
         {
