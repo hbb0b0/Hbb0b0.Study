@@ -17,10 +17,12 @@ namespace AsyncFunctionCodeSample
 
             //IRun2.Run();
 
-            IRun IRun3 = new GloabalRandomWithNoLock();
+            //IRun IRun3 = new GloabalRandomWithNoLock();
 
-            IRun3.Run();
+            //IRun3.Run();
 
+            IRun IRun4 = new TaskExceptionSample();
+            IRun4.Run();
             Console.ReadLine();
         }
     }

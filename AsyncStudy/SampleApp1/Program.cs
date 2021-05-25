@@ -39,13 +39,14 @@ namespace SampleApp1
         static async Task<int> GetNumber1()
         {
             Console.WriteLine("");
-            var t = Task.Run(() => {
+            var t = Task.Run(() =>
+            {
                 Task.Delay(5000).Wait();
                 return 100;
             });
 
             return await t;
-
+        }
         static int GetThreadId()
         {
             return Thread.CurrentThread.ManagedThreadId;
