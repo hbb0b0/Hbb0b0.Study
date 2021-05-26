@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using WinFormsTaskCancelSample.Calculator;
 
 namespace WinFormsTaskCancelSample
 {
     public partial class CalcWinform : Form
     {
+
+        CancellationTokenSource m_cts = new CancellationTokenSource();
         public CalcWinform()
         {
             InitializeComponent();
@@ -27,6 +31,17 @@ namespace WinFormsTaskCancelSample
 
                 MessageBox.Show($"Number:{number} Result:{result}");
             }
+        }
+
+        private void btnGetUrlStringCancel_Click(object sender, EventArgs e)
+        {
+            m_cts.Cancel();
+        }
+
+        private async void btnGetUrlString_Click(object sender, EventArgs e)
+        {
+            rbContent.Text = "";
+            rbContent.Text = await MyWebRequest.GetUrlContent(tbUrl.Text.Trim(), m_cts.Token);
         }
     }
 }
