@@ -15,7 +15,7 @@ namespace SampleApp1
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Main Start....");
+            Console.WriteLine($"Main Start.... ThreadId:{GetThreadId()}");
             CallAsync(); 
             Console.WriteLine("Main end....");
             Console.ReadLine();
@@ -38,9 +38,10 @@ namespace SampleApp1
         /// <returns></returns>
         static async Task<int> GetNumber1()
         {
-            Console.WriteLine("");
+            Console.WriteLine($"...async .GetNumber1.....ThreadId:{GetThreadId()}");
             var t = Task.Run(() =>
             {
+                Console.WriteLine($"....GetNumber1.....ThreadId:{GetThreadId()}");
                 Task.Delay(5000).Wait();
                 return 100;
             });
