@@ -35,6 +35,8 @@ namespace AsyncCalcSumSample
         static async Task<List<string>> ReadTextAsyncList(string filePath)
         {
             Console.WriteLine($"filepath:{filePath} start");
+
+            await Task.Delay(5000);
             string[] strArray = await File.ReadAllLinesAsync(filePath);
 
             List<string> strList = strArray.ToList<string>();
