@@ -54,7 +54,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncFunctionCodeSample", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsTaskCancelSample", "AsyncStudy\WinformAsync\WinFormsTaskCancelSample\WinFormsTaskCancelSample.csproj", "{78C8D125-55A6-4642-84D8-9DE083C4F4DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncCalcSumSample", "AsyncStudy\AsyncCalcSumSample\AsyncCalcSumSample.csproj", "{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncCalcSumSample", "AsyncStudy\AsyncCalcSumSample\AsyncCalcSumSample.csproj", "{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockPricesSample", "AsyncStudy\StockPricesSample\StockPricesSample.csproj", "{D0BB7519-53E4-471A-A26B-ACF2F43E474D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,6 +128,10 @@ Global
 		{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0BB7519-53E4-471A-A26B-ACF2F43E474D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0BB7519-53E4-471A-A26B-ACF2F43E474D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0BB7519-53E4-471A-A26B-ACF2F43E474D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0BB7519-53E4-471A-A26B-ACF2F43E474D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,6 +150,7 @@ Global
 		{BB39A15B-8772-4877-BCA3-B259FAD015F7} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
 		{78C8D125-55A6-4642-84D8-9DE083C4F4DB} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
 		{ECF2D1B3-CF26-4C86-9E2E-5F38CC5C82A9} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
+		{D0BB7519-53E4-471A-A26B-ACF2F43E474D} = {267DB059-BEF1-4A96-9DA8-D05302B2E3E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8110C10-D9D6-46DD-AE31-52D8D17EB17A}
