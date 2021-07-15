@@ -27,7 +27,7 @@ namespace AsyncCalcSumSample
                 });
             }
 
-            Console.WriteLine($"ProcessReadAsyncList:{filePath} end");
+            Console.WriteLine($"ProcessReadAsyncList:{filePath} end  list:{string.Join(",",list)}");
             return list;
 
         }
