@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SampleApp3
@@ -10,6 +11,7 @@ namespace SampleApp3
 
         internal static void Run()
         {
+            Console.WriteLine($" Run   threadid:{GetThreadId()}");
             callMethod();
             Console.ReadKey();
         }
@@ -26,9 +28,9 @@ namespace SampleApp3
             int count = 0;
             await Task.Run(() =>
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    Console.WriteLine(" Method 1");
+                    Console.WriteLine($" Method 1  threadid:{GetThreadId()}");
                     count += 1;
                 }
             });
@@ -37,15 +39,20 @@ namespace SampleApp3
 
         public static void Method2()
         {
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(" Method 2");
+                Console.WriteLine($" Method 2  threadid:{GetThreadId()}");
             }
         }
 
         public static void Method3(int count)
         {
-            Console.WriteLine("Total count is " + count);
+            Console.WriteLine($"Method3 Total count is :{count} threadid:{GetThreadId()}" );
+        }
+
+        static int GetThreadId()
+        {
+            return Thread.CurrentThread.ManagedThreadId;
         }
     }
 }

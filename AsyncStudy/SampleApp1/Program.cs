@@ -28,8 +28,8 @@ namespace SampleApp1
         {
             Console.WriteLine($"AsyncCall start  ThreadId:{GetThreadId()}");
             int result = await GetNumber1();
-            Console.WriteLine($"AsyncCall:result:{result}");
-            Console.WriteLine("AsyncCall end");
+            Console.WriteLine($"AsyncCall:result:{result}  ThreadId:{GetThreadId()}");
+            Console.WriteLine($"AsyncCall end ThreadId:{GetThreadId()}");
         }
 
         /// <summary>
@@ -38,9 +38,12 @@ namespace SampleApp1
         /// <returns></returns>
         static async Task<int> GetNumber1()
         {
+            //这一与运行在主线程中
             Console.WriteLine($"...async .GetNumber1.....ThreadId:{GetThreadId()}");
+
             var t = Task.Run(() =>
             {
+                //此时才开始在子线程中运行
                 Console.WriteLine($"....GetNumber1.....ThreadId:{GetThreadId()}");
                 Task.Delay(5000).Wait();
                 return 100;
