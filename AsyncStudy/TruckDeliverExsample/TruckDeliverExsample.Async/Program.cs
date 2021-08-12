@@ -30,6 +30,7 @@ namespace TruckDeliverExsample.Async
             string userId = "lhb";
 
             string token=await  driver.ReportToBackOffficeAsync(userId);
+            //userID 生成token后才会继续执行
             var verifyTask = loadVerify.VerifyAsync(token);
             var assignTask = newLoadAssigner.AssignerAsync(token);
             //等待VerifyAsync与AssignerAsync 执行完毕
